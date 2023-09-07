@@ -1,0 +1,64 @@
+{
+  "type": "record",
+  "name": "RecordWithCustomLogicalTypes",
+  "namespace": "com.rtbhouse.generated.avro",
+  "doc": "Used to confirm fast-serde supports custom-logical-types",
+  "fields": [
+    {
+      "name": "customDurationField",
+      "type": {
+        "name": "TwelveBytes",
+        "type": "fixed",
+        "size": 12,
+        "logicalType": "custom-duration"
+      }
+    },
+    {
+      "name": "mapOfCustomDurations",
+      "type": {
+        "type": "map",
+        "values": {
+          "type": "TwelveBytes",
+          "logicalType": "custom-duration"
+        }
+      }
+    },
+    {
+      "name": "mapOfNullableCustomDurations",
+      "type": {
+        "type": "map",
+        "values": [
+          "null",
+          {
+            "type": "TwelveBytes",
+            "logicalType": "custom-duration"
+          }
+        ]
+      }
+    },
+    {
+      "name": "daysSince2000Field",
+      "type": {
+        "type": "int",
+        "logicalType": "days-since-2000"
+      }
+    },
+    {
+      "name": "arrayOfUnionOfNullableCustomTypes",
+      "type": {
+        "type": "array",
+        "items": [
+          {
+            "type": "TwelveBytes",
+            "logicalType": "custom-duration"
+          },
+          "null",
+          {
+            "type": "int",
+            "logicalType": "days-since-2000"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,1 +1,10 @@
 custom-logical-types-defs/target
+custom-logical-types-used/target/classes
+custom-logical-types-used/target/generated-sources
+custom-logical-types-used/target/generated-test-sources
+custom-logical-types-used/target/maven-archiver
+custom-logical-types-used/target/maven-status
+custom-logical-types-used/target/surefire-reports
+custom-logical-types-used/target/test-classes
+custom-logical-types-used/target/custom-logical-types-used-0.1-SNAPSHOT.jar
+*.class

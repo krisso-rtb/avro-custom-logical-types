@@ -1,0 +1,58 @@
+{
+  "type": "record",
+  "name": "RecordWithoutCustomLogicalTypes",
+  "namespace": "com.rtbhouse.generated.avro",
+  "doc": "Used to confirm equality of corresponding serialized bytes",
+  "fields": [
+    {
+      "name": "customDurationField",
+      "type": {
+        "name": "TwelveBytes",
+        "type": "fixed",
+        "size": 12
+      }
+    },
+    {
+      "name": "mapOfCustomDurations",
+      "type": {
+        "type": "map",
+        "values": {
+          "type": "TwelveBytes"
+        }
+      }
+    },
+    {
+      "name": "mapOfNullableCustomDurations",
+      "type": {
+        "type": "map",
+        "values": [
+          "null",
+          {
+            "type": "TwelveBytes"
+          }
+        ]
+      }
+    },
+    {
+      "name": "daysSince2000Field",
+      "type": {
+        "type": "int"
+      }
+    },
+    {
+      "name": "arrayOfUnionOfNullableCustomTypes",
+      "type": {
+        "type": "array",
+        "items": [
+          {
+            "type": "TwelveBytes"
+          },
+          "null",
+          {
+            "type": "int"
+          }
+        ]
+      }
+    }
+  ]
+}
