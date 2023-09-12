@@ -16,6 +16,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.function.Supplier;
 
+import org.apache.avro.LogicalTypes;
 import org.apache.avro.Schema;
 import org.apache.avro.generic.GenericData;
 import org.apache.avro.generic.GenericDatumReader;
@@ -47,6 +48,12 @@ public class CustomLogicalTypesTest {
 
     private final File classesDir;
     private final ClassLoader classLoader;
+
+    static {
+        // Hack for registering logical type. It must be done prior to schema parsing.
+        LogicalTypes.register(CustomDurationLogicalTypeFactory.LOGICAL_TYPE_NAME, new CustomDurationLogicalTypeFactory());
+        LogicalTypes.register(DaysSince2000LogicalTypeFactory.LOGICAL_TYPE_NAME, new DaysSince2000LogicalTypeFactory());
+    }
 
     CustomLogicalTypesTest() {
         try {

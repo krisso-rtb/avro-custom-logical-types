@@ -16,18 +16,16 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class RecordWithoutCustomLogicalTypes extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = -846573718191963520L;
-
-
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"RecordWithoutCustomLogicalTypes\",\"namespace\":\"com.rtbhouse.generated.avro\",\"doc\":\"Used to confirm equality of corresponding serialized bytes\",\"fields\":[{\"name\":\"customDurationField\",\"type\":{\"type\":\"fixed\",\"name\":\"TwelveBytes\",\"size\":12}},{\"name\":\"mapOfCustomDurations\",\"type\":{\"type\":\"map\",\"values\":\"TwelveBytes\",\"avro.java.string\":\"String\"}},{\"name\":\"mapOfNullableCustomDurations\",\"type\":{\"type\":\"map\",\"values\":[\"null\",\"TwelveBytes\"],\"avro.java.string\":\"String\"}},{\"name\":\"daysSince2000Field\",\"type\":\"int\"},{\"name\":\"arrayOfUnionOfNullableCustomTypes\",\"type\":{\"type\":\"array\",\"items\":[\"TwelveBytes\",\"null\",\"int\"]}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static final SpecificData MODEL$ = new SpecificData();
+  private static SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<RecordWithoutCustomLogicalTypes> ENCODER =
-      new BinaryMessageEncoder<>(MODEL$, SCHEMA$);
+      new BinaryMessageEncoder<RecordWithoutCustomLogicalTypes>(MODEL$, SCHEMA$);
 
   private static final BinaryMessageDecoder<RecordWithoutCustomLogicalTypes> DECODER =
-      new BinaryMessageDecoder<>(MODEL$, SCHEMA$);
+      new BinaryMessageDecoder<RecordWithoutCustomLogicalTypes>(MODEL$, SCHEMA$);
 
   /**
    * Return the BinaryMessageEncoder instance used by this class.
@@ -51,7 +49,7 @@ public class RecordWithoutCustomLogicalTypes extends org.apache.avro.specific.Sp
    * @return a BinaryMessageDecoder instance for this class backed by the given SchemaStore
    */
   public static BinaryMessageDecoder<RecordWithoutCustomLogicalTypes> createDecoder(SchemaStore resolver) {
-    return new BinaryMessageDecoder<>(MODEL$, SCHEMA$, resolver);
+    return new BinaryMessageDecoder<RecordWithoutCustomLogicalTypes>(MODEL$, SCHEMA$, resolver);
   }
 
   /**
@@ -74,11 +72,11 @@ public class RecordWithoutCustomLogicalTypes extends org.apache.avro.specific.Sp
     return DECODER.decode(b);
   }
 
-  private com.rtbhouse.generated.avro.TwelveBytes customDurationField;
-  private java.util.Map<java.lang.String,com.rtbhouse.generated.avro.TwelveBytes> mapOfCustomDurations;
-  private java.util.Map<java.lang.String,com.rtbhouse.generated.avro.TwelveBytes> mapOfNullableCustomDurations;
-  private int daysSince2000Field;
-  private java.util.List<java.lang.Object> arrayOfUnionOfNullableCustomTypes;
+   private com.rtbhouse.generated.avro.TwelveBytes customDurationField;
+   private java.util.Map<java.lang.String,com.rtbhouse.generated.avro.TwelveBytes> mapOfCustomDurations;
+   private java.util.Map<java.lang.String,com.rtbhouse.generated.avro.TwelveBytes> mapOfNullableCustomDurations;
+   private int daysSince2000Field;
+   private java.util.List<java.lang.Object> arrayOfUnionOfNullableCustomTypes;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -103,14 +101,9 @@ public class RecordWithoutCustomLogicalTypes extends org.apache.avro.specific.Sp
     this.arrayOfUnionOfNullableCustomTypes = arrayOfUnionOfNullableCustomTypes;
   }
 
-  @Override
   public org.apache.avro.specific.SpecificData getSpecificData() { return MODEL$; }
-
-  @Override
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
-
   // Used by DatumWriter.  Applications should not call.
-  @Override
   public java.lang.Object get(int field$) {
     switch (field$) {
     case 0: return customDurationField;
@@ -123,7 +116,6 @@ public class RecordWithoutCustomLogicalTypes extends org.apache.avro.specific.Sp
   }
 
   // Used by DatumReader.  Applications should not call.
-  @Override
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
@@ -270,7 +262,7 @@ public class RecordWithoutCustomLogicalTypes extends org.apache.avro.specific.Sp
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$, MODEL$);
+      super(SCHEMA$);
     }
 
     /**
@@ -306,7 +298,7 @@ public class RecordWithoutCustomLogicalTypes extends org.apache.avro.specific.Sp
      * @param other The existing instance to copy.
      */
     private Builder(com.rtbhouse.generated.avro.RecordWithoutCustomLogicalTypes other) {
-      super(SCHEMA$, MODEL$);
+      super(SCHEMA$);
       if (isValidValue(fields()[0], other.customDurationField)) {
         this.customDurationField = data().deepCopy(fields()[0].schema(), other.customDurationField);
         fieldSetFlags()[0] = true;

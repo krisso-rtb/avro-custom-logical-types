@@ -1,68 +1,66 @@
 
-package com.linkedin.avro.fastserde.generated.serialization.AVRO_1_11;
+package com.linkedin.avro.fastserde.generated.serialization.AVRO_1_10;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import com.linkedin.avro.fastserde.FastSerializer;
-import org.apache.avro.generic.GenericData;
+import com.rtbhouse.generated.avro.RecordWithoutCustomLogicalTypes;
 import org.apache.avro.generic.GenericFixed;
-import org.apache.avro.generic.IndexedRecord;
 import org.apache.avro.io.Encoder;
+import org.apache.avro.specific.SpecificData;
 
-public class RecordWithoutCustomLogicalTypes_GenericSerializer_444096306
-    implements FastSerializer<IndexedRecord>
+public class RecordWithoutCustomLogicalTypes_SpecificSerializer_444096306
+    implements FastSerializer<RecordWithoutCustomLogicalTypes>
 {
 
-    private final GenericData modelData;
+    private final SpecificData modelData;
 
-    public RecordWithoutCustomLogicalTypes_GenericSerializer_444096306(GenericData modelData) {
+    public RecordWithoutCustomLogicalTypes_SpecificSerializer_444096306(SpecificData modelData) {
         this.modelData = modelData;
     }
 
-    public void serialize(IndexedRecord data, Encoder encoder)
+    public void serialize(RecordWithoutCustomLogicalTypes data, Encoder encoder)
         throws IOException
     {
         serializeRecordWithoutCustomLogicalTypes0(data, (encoder));
     }
 
     @SuppressWarnings("unchecked")
-    public void serializeRecordWithoutCustomLogicalTypes0(IndexedRecord data, Encoder encoder)
+    public void serializeRecordWithoutCustomLogicalTypes0(RecordWithoutCustomLogicalTypes data, Encoder encoder)
         throws IOException
     {
         (encoder).writeFixed(((GenericFixed) data.get(0)).bytes());
-        Map<CharSequence, GenericFixed> mapOfCustomDurations0 = ((Map<CharSequence, GenericFixed> ) data.get(1));
+        Map<String, GenericFixed> mapOfCustomDurations0 = ((Map<String, GenericFixed> ) data.get(1));
         (encoder).writeMapStart();
         if ((mapOfCustomDurations0 == null)||mapOfCustomDurations0 .isEmpty()) {
             (encoder).setItemCount(0);
         } else {
             (encoder).setItemCount(mapOfCustomDurations0 .size());
-            for (CharSequence key0 : ((Map<CharSequence, GenericFixed> ) mapOfCustomDurations0).keySet()) {
+            for (String key0 : ((Map<String, GenericFixed> ) mapOfCustomDurations0).keySet()) {
                 (encoder).startItem();
                 (encoder).writeString(key0);
                 (encoder).writeFixed(((GenericFixed) mapOfCustomDurations0 .get(key0)).bytes());
             }
         }
         (encoder).writeMapEnd();
-        Map<CharSequence, GenericFixed> mapOfNullableCustomDurations0 = ((Map<CharSequence, GenericFixed> ) data.get(2));
+        Map<String, GenericFixed> mapOfNullableCustomDurations0 = ((Map<String, GenericFixed> ) data.get(2));
         (encoder).writeMapStart();
         if ((mapOfNullableCustomDurations0 == null)||mapOfNullableCustomDurations0 .isEmpty()) {
             (encoder).setItemCount(0);
         } else {
             (encoder).setItemCount(mapOfNullableCustomDurations0 .size());
-            for (CharSequence key1 : ((Map<CharSequence, GenericFixed> ) mapOfNullableCustomDurations0).keySet()) {
+            for (String key1 : ((Map<String, GenericFixed> ) mapOfNullableCustomDurations0).keySet()) {
                 (encoder).startItem();
                 (encoder).writeString(key1);
                 GenericFixed union0 = null;
-                union0 = ((Map<CharSequence, GenericFixed> ) mapOfNullableCustomDurations0).get(key1);
+                union0 = ((Map<String, GenericFixed> ) mapOfNullableCustomDurations0).get(key1);
                 if (union0 == null) {
                     (encoder).writeIndex(0);
                     (encoder).writeNull();
                 } else {
-                    if ((union0 instanceof GenericFixed)&&"com.rtbhouse.generated.avro.TwelveBytes".equals(((GenericFixed) union0).getSchema().getFullName())) {
-                        (encoder).writeIndex(1);
-                        (encoder).writeFixed(((GenericFixed) union0).bytes());
-                    }
+                    (encoder).writeIndex(1);
+                    (encoder).writeFixed(((GenericFixed) union0).bytes());
                 }
             }
         }
@@ -82,7 +80,7 @@ public class RecordWithoutCustomLogicalTypes_GenericSerializer_444096306
                     (encoder).writeIndex(1);
                     (encoder).writeNull();
                 } else {
-                    if ((union1 instanceof GenericFixed)&&"com.rtbhouse.generated.avro.TwelveBytes".equals(((GenericFixed) union1).getSchema().getFullName())) {
+                    if (union1 instanceof GenericFixed) {
                         (encoder).writeIndex(0);
                         (encoder).writeFixed(((GenericFixed) union1).bytes());
                     } else {

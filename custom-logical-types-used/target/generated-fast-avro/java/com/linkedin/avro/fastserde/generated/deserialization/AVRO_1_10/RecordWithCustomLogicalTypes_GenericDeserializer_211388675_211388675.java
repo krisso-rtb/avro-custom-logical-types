@@ -1,5 +1,5 @@
 
-package com.linkedin.avro.fastserde.generated.deserialization.AVRO_1_11;
+package com.linkedin.avro.fastserde.generated.deserialization.AVRO_1_10;
 
 import java.io.IOException;
 import java.util.HashMap;

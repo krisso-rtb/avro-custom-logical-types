@@ -16,26 +16,20 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class RecordWithCustomLogicalTypes extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = -194069312083197704L;
-
-  static {
-    org.apache.avro.LogicalTypes.register("days-since-2000", new com.rtbhouse.custom.logical.types.DaysSince2000LogicalTypeFactory());
-    org.apache.avro.LogicalTypes.register("custom-duration", new com.rtbhouse.custom.logical.types.CustomDurationLogicalTypeFactory());
-  }
-
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"RecordWithCustomLogicalTypes\",\"namespace\":\"com.rtbhouse.generated.avro\",\"doc\":\"Used to confirm fast-serde supports custom-logical-types\",\"fields\":[{\"name\":\"customDurationField\",\"type\":{\"type\":\"fixed\",\"name\":\"TwelveBytes\",\"size\":12,\"logicalType\":\"custom-duration\"}},{\"name\":\"mapOfCustomDurations\",\"type\":{\"type\":\"map\",\"values\":\"TwelveBytes\",\"avro.java.string\":\"String\"}},{\"name\":\"mapOfNullableCustomDurations\",\"type\":{\"type\":\"map\",\"values\":[\"null\",\"TwelveBytes\"],\"avro.java.string\":\"String\"}},{\"name\":\"daysSince2000Field\",\"type\":{\"type\":\"int\",\"logicalType\":\"days-since-2000\"}},{\"name\":\"arrayOfUnionOfNullableCustomTypes\",\"type\":{\"type\":\"array\",\"items\":[\"TwelveBytes\",\"null\",{\"type\":\"int\",\"logicalType\":\"days-since-2000\"}]}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static final SpecificData MODEL$ = new SpecificData();
-  static {
-    MODEL$.addLogicalTypeConversion(new com.rtbhouse.custom.logical.types.CustomDurationConversion());
+  private static SpecificData MODEL$ = new SpecificData();
+static {
     MODEL$.addLogicalTypeConversion(new com.rtbhouse.custom.logical.types.DaysSince2000Conversion());
+    MODEL$.addLogicalTypeConversion(new com.rtbhouse.custom.logical.types.CustomDurationConversion());
   }
 
   private static final BinaryMessageEncoder<RecordWithCustomLogicalTypes> ENCODER =
-      new BinaryMessageEncoder<>(MODEL$, SCHEMA$);
+      new BinaryMessageEncoder<RecordWithCustomLogicalTypes>(MODEL$, SCHEMA$);
 
   private static final BinaryMessageDecoder<RecordWithCustomLogicalTypes> DECODER =
-      new BinaryMessageDecoder<>(MODEL$, SCHEMA$);
+      new BinaryMessageDecoder<RecordWithCustomLogicalTypes>(MODEL$, SCHEMA$);
 
   /**
    * Return the BinaryMessageEncoder instance used by this class.
@@ -59,7 +53,7 @@ public class RecordWithCustomLogicalTypes extends org.apache.avro.specific.Speci
    * @return a BinaryMessageDecoder instance for this class backed by the given SchemaStore
    */
   public static BinaryMessageDecoder<RecordWithCustomLogicalTypes> createDecoder(SchemaStore resolver) {
-    return new BinaryMessageDecoder<>(MODEL$, SCHEMA$, resolver);
+    return new BinaryMessageDecoder<RecordWithCustomLogicalTypes>(MODEL$, SCHEMA$, resolver);
   }
 
   /**
@@ -82,11 +76,11 @@ public class RecordWithCustomLogicalTypes extends org.apache.avro.specific.Speci
     return DECODER.decode(b);
   }
 
-  private com.rtbhouse.custom.logical.types.CustomDuration customDurationField;
-  private java.util.Map<java.lang.String,com.rtbhouse.custom.logical.types.CustomDuration> mapOfCustomDurations;
-  private java.util.Map<java.lang.String,com.rtbhouse.custom.logical.types.CustomDuration> mapOfNullableCustomDurations;
-  private com.rtbhouse.custom.logical.types.DaysSince2000 daysSince2000Field;
-  private java.util.List<java.lang.Object> arrayOfUnionOfNullableCustomTypes;
+   private com.rtbhouse.custom.logical.types.CustomDuration customDurationField;
+   private java.util.Map<java.lang.String,com.rtbhouse.custom.logical.types.CustomDuration> mapOfCustomDurations;
+   private java.util.Map<java.lang.String,com.rtbhouse.custom.logical.types.CustomDuration> mapOfNullableCustomDurations;
+   private com.rtbhouse.custom.logical.types.DaysSince2000 daysSince2000Field;
+   private java.util.List<java.lang.Object> arrayOfUnionOfNullableCustomTypes;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -111,14 +105,9 @@ public class RecordWithCustomLogicalTypes extends org.apache.avro.specific.Speci
     this.arrayOfUnionOfNullableCustomTypes = arrayOfUnionOfNullableCustomTypes;
   }
 
-  @Override
   public org.apache.avro.specific.SpecificData getSpecificData() { return MODEL$; }
-
-  @Override
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
-
   // Used by DatumWriter.  Applications should not call.
-  @Override
   public java.lang.Object get(int field$) {
     switch (field$) {
     case 0: return customDurationField;
@@ -146,7 +135,6 @@ public class RecordWithCustomLogicalTypes extends org.apache.avro.specific.Speci
   }
 
   // Used by DatumReader.  Applications should not call.
-  @Override
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
@@ -293,7 +281,7 @@ public class RecordWithCustomLogicalTypes extends org.apache.avro.specific.Speci
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$, MODEL$);
+      super(SCHEMA$);
     }
 
     /**
@@ -329,7 +317,7 @@ public class RecordWithCustomLogicalTypes extends org.apache.avro.specific.Speci
      * @param other The existing instance to copy.
      */
     private Builder(com.rtbhouse.generated.avro.RecordWithCustomLogicalTypes other) {
-      super(SCHEMA$, MODEL$);
+      super(SCHEMA$);
       if (isValidValue(fields()[0], other.customDurationField)) {
         this.customDurationField = data().deepCopy(fields()[0].schema(), other.customDurationField);
         fieldSetFlags()[0] = true;
