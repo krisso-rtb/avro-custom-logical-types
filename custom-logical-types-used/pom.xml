@@ -13,6 +13,13 @@
 
     <artifactId>custom-logical-types-used</artifactId>
 
+    <repositories>
+        <repository>
+            <id>linkedin</id>
+            <url>https://linkedin.jfrog.io/artifactory/avro-util/</url>
+        </repository>
+    </repositories>
+
     <dependencies>
         <dependency>
             <groupId>${project.parent.groupId}</groupId>
@@ -27,13 +34,13 @@
         <dependency>
             <groupId>com.linkedin.avroutil1</groupId>
             <artifactId>avro-fastserde</artifactId>
-            <version>0.2.3-SNAPSHOT</version>
+            <version>0.4.19</version>
         </dependency>
 
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>5.10.0</version>
+            <version>5.10.3</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -57,13 +64,10 @@
                             <sourceDirectory>src/main/resources/schema</sourceDirectory>
                             <outputDirectory>target/generated/java</outputDirectory>
                             <customLogicalTypeFactories>
-                                <customLogicalTypeFactory>com.rtbhouse.custom.logical.types.CustomDurationLogicalTypeFactory
-                                </customLogicalTypeFactory>
-                                <customLogicalTypeFactory>com.rtbhouse.custom.logical.types.DaysSince2000LogicalTypeFactory</customLogicalTypeFactory>
+                                <customLogicalTypeFactory>com.rtbhouse.custom.logical.types.LatLonLogicalTypeFactory</customLogicalTypeFactory>
                             </customLogicalTypeFactories>
                             <customConversions>
-                                <conversion>com.rtbhouse.custom.logical.types.CustomDurationConversion</conversion>
-                                <conversion>com.rtbhouse.custom.logical.types.DaysSince2000Conversion</conversion>
+                                <conversion>com.rtbhouse.custom.logical.types.LatLonConversion</conversion>
                             </customConversions>
                         </configuration>
                     </execution>

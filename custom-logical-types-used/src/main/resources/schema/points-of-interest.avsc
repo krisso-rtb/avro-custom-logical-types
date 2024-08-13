@@ -1,0 +1,41 @@
+{
+  "type": "record",
+  "name": "PointsOfInterest",
+  "namespace": "com.rtbhouse.generated.avro",
+  "doc": "Collects POIs (points of interest) for a single user.",
+  "fields": [
+    {
+      "name": "username",
+      "type": "string"
+    },
+    {
+      "name": "locations",
+      "type": {
+        "type": "array",
+        "items": {
+          "name": "Location",
+          "type": "record",
+          "fields": [
+            {
+              "name": "description",
+              "type": "string"
+            },
+            {
+              "name": "coordinates",
+              "type": [
+                "null",
+                {
+                  "name": "Coordinates",
+                  "type": "fixed",
+                  "size": 16,
+                  "logicalType": "lat-lon"
+                }
+              ],
+              "doc": "Must be a union to observe the issue"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
