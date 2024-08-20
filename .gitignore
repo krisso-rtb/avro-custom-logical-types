@@ -1,4 +1,5 @@
 custom-logical-types-defs/target
+custom-logical-types-used/custom-logical-types-used.iml
 custom-logical-types-used/target/classes
 custom-logical-types-used/target/generated-sources
 custom-logical-types-used/target/generated-test-sources

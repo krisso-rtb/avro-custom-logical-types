@@ -48,11 +48,11 @@
       "type": {
         "type": "array",
         "items": [
+          "null",
           {
             "type": "TwelveBytes",
             "logicalType": "custom-duration"
           },
-          "null",
           {
             "type": "int",
             "logicalType": "days-since-2000"

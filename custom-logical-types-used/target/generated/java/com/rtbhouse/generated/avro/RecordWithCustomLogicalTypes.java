@@ -15,14 +15,14 @@ import org.apache.avro.message.SchemaStore;
 /** Used to confirm fast-serde supports custom-logical-types */
 @org.apache.avro.specific.AvroGenerated
 public class RecordWithCustomLogicalTypes extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -194069312083197704L;
+  private static final long serialVersionUID = 4245500396498402973L;
 
   static {
     org.apache.avro.LogicalTypes.register("days-since-2000", new com.rtbhouse.custom.logical.types.DaysSince2000LogicalTypeFactory());
     org.apache.avro.LogicalTypes.register("custom-duration", new com.rtbhouse.custom.logical.types.CustomDurationLogicalTypeFactory());
   }
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"RecordWithCustomLogicalTypes\",\"namespace\":\"com.rtbhouse.generated.avro\",\"doc\":\"Used to confirm fast-serde supports custom-logical-types\",\"fields\":[{\"name\":\"customDurationField\",\"type\":{\"type\":\"fixed\",\"name\":\"TwelveBytes\",\"size\":12,\"logicalType\":\"custom-duration\"}},{\"name\":\"mapOfCustomDurations\",\"type\":{\"type\":\"map\",\"values\":\"TwelveBytes\",\"avro.java.string\":\"String\"}},{\"name\":\"mapOfNullableCustomDurations\",\"type\":{\"type\":\"map\",\"values\":[\"null\",\"TwelveBytes\"],\"avro.java.string\":\"String\"}},{\"name\":\"daysSince2000Field\",\"type\":{\"type\":\"int\",\"logicalType\":\"days-since-2000\"}},{\"name\":\"arrayOfUnionOfNullableCustomTypes\",\"type\":{\"type\":\"array\",\"items\":[\"TwelveBytes\",\"null\",{\"type\":\"int\",\"logicalType\":\"days-since-2000\"}]}}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"RecordWithCustomLogicalTypes\",\"namespace\":\"com.rtbhouse.generated.avro\",\"doc\":\"Used to confirm fast-serde supports custom-logical-types\",\"fields\":[{\"name\":\"customDurationField\",\"type\":{\"type\":\"fixed\",\"name\":\"TwelveBytes\",\"size\":12,\"logicalType\":\"custom-duration\"}},{\"name\":\"mapOfCustomDurations\",\"type\":{\"type\":\"map\",\"values\":\"TwelveBytes\",\"avro.java.string\":\"String\"}},{\"name\":\"mapOfNullableCustomDurations\",\"type\":{\"type\":\"map\",\"values\":[\"null\",\"TwelveBytes\"],\"avro.java.string\":\"String\"}},{\"name\":\"daysSince2000Field\",\"type\":{\"type\":\"int\",\"logicalType\":\"days-since-2000\"}},{\"name\":\"arrayOfUnionOfNullableCustomTypes\",\"type\":{\"type\":\"array\",\"items\":[\"null\",\"TwelveBytes\",{\"type\":\"int\",\"logicalType\":\"days-since-2000\"}]}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();

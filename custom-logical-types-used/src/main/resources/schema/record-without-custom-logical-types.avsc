@@ -44,10 +44,10 @@
       "type": {
         "type": "array",
         "items": [
+          "null",
           {
             "type": "TwelveBytes"
           },
-          "null",
           {
             "type": "int"
           }

@@ -8,17 +8,15 @@ import java.util.Map;
 import com.linkedin.avro.fastserde.FastDeserializer;
 import org.apache.avro.Schema;
 import org.apache.avro.generic.GenericArray;
-import org.apache.avro.generic.GenericData;
 import org.apache.avro.generic.GenericFixed;
 import org.apache.avro.generic.IndexedRecord;
 import org.apache.avro.io.Decoder;
 
-public class RecordWithoutCustomLogicalTypes_GenericDeserializer_444096306_444096306
+public class RecordWithoutCustomLogicalTypes_GenericDeserializer_86360459_86360459
     implements FastDeserializer<IndexedRecord>
 {
 
     private final Schema readerSchema;
-    private final GenericData modelData;
     private final Schema customDurationField0;
     private final Schema mapOfCustomDurations0;
     private final Schema mapOfNullableCustomDurations0;
@@ -26,9 +24,8 @@ public class RecordWithoutCustomLogicalTypes_GenericDeserializer_444096306_44409
     private final Schema arrayOfUnionOfNullableCustomTypes0;
     private final Schema arrayOfUnionOfNullableCustomTypesArrayElemSchema0;
 
-    public RecordWithoutCustomLogicalTypes_GenericDeserializer_444096306_444096306(Schema readerSchema, GenericData modelData) {
+    public RecordWithoutCustomLogicalTypes_GenericDeserializer_86360459_86360459(Schema readerSchema) {
         this.readerSchema = readerSchema;
-        this.modelData = modelData;
         this.customDurationField0 = readerSchema.getField("customDurationField").schema();
         this.mapOfCustomDurations0 = readerSchema.getField("mapOfCustomDurations").schema();
         this.mapOfNullableCustomDurations0 = readerSchema.getField("mapOfNullableCustomDurations").schema();
@@ -50,7 +47,7 @@ public class RecordWithoutCustomLogicalTypes_GenericDeserializer_444096306_44409
         if ((((reuse)!= null)&&((reuse) instanceof IndexedRecord))&&(((IndexedRecord)(reuse)).getSchema() == readerSchema)) {
             RecordWithoutCustomLogicalTypes = ((IndexedRecord)(reuse));
         } else {
-            RecordWithoutCustomLogicalTypes = new GenericData.Record(readerSchema);
+            RecordWithoutCustomLogicalTypes = new org.apache.avro.generic.GenericData.Record(readerSchema);
         }
         byte[] twelveBytes0;
         Object oldFixed0 = RecordWithoutCustomLogicalTypes.get(0);
@@ -60,7 +57,7 @@ public class RecordWithoutCustomLogicalTypes_GenericDeserializer_444096306_44409
             twelveBytes0 = ( new byte[12]);
         }
         decoder.readFixed(twelveBytes0);
-        RecordWithoutCustomLogicalTypes.put(0, new GenericData.Fixed(customDurationField0, twelveBytes0));
+        RecordWithoutCustomLogicalTypes.put(0, new org.apache.avro.generic.GenericData.Fixed(customDurationField0, twelveBytes0));
         Map<String, GenericFixed> mapOfCustomDurations1 = null;
         long chunkLen0 = (decoder.readMapStart());
         if (chunkLen0 > 0) {
@@ -81,7 +78,7 @@ public class RecordWithoutCustomLogicalTypes_GenericDeserializer_444096306_44409
                     byte[] twelveBytes1;
                     twelveBytes1 = ( new byte[12]);
                     decoder.readFixed(twelveBytes1);
-                    mapOfCustomDurations1 .put(key0, new GenericData.Fixed(customDurationField0, twelveBytes1));
+                    mapOfCustomDurations1 .put(key0, new org.apache.avro.generic.GenericData.Fixed(customDurationField0, twelveBytes1));
                 }
                 chunkLen0 = (decoder.mapNext());
             } while (chunkLen0 > 0);
@@ -115,7 +112,7 @@ public class RecordWithoutCustomLogicalTypes_GenericDeserializer_444096306_44409
                             byte[] twelveBytes2;
                             twelveBytes2 = ( new byte[12]);
                             decoder.readFixed(twelveBytes2);
-                            mapOfNullableCustomDurations1 .put(key1, new GenericData.Fixed(customDurationField0, twelveBytes2));
+                            mapOfNullableCustomDurations1 .put(key1, new org.apache.avro.generic.GenericData.Fixed(customDurationField0, twelveBytes2));
                         } else {
                             throw new RuntimeException(("Illegal union index for 'mapOfNullableCustomDurationsValue': "+ unionIndex0));
                         }
@@ -133,9 +130,13 @@ public class RecordWithoutCustomLogicalTypes_GenericDeserializer_444096306_44409
         Object oldArray0 = RecordWithoutCustomLogicalTypes.get(4);
         if (oldArray0 instanceof List) {
             arrayOfUnionOfNullableCustomTypes1 = ((List) oldArray0);
-            arrayOfUnionOfNullableCustomTypes1 .clear();
+            if (arrayOfUnionOfNullableCustomTypes1 instanceof GenericArray) {
+                ((GenericArray) arrayOfUnionOfNullableCustomTypes1).reset();
+            } else {
+                arrayOfUnionOfNullableCustomTypes1 .clear();
+            }
         } else {
-            arrayOfUnionOfNullableCustomTypes1 = new GenericData.Array<Object>(((int) chunkLen2), arrayOfUnionOfNullableCustomTypes0);
+            arrayOfUnionOfNullableCustomTypes1 = new org.apache.avro.generic.GenericData.Array<Object>(((int) chunkLen2), arrayOfUnionOfNullableCustomTypes0);
         }
         while (chunkLen2 > 0) {
             for (int counter2 = 0; (counter2 <chunkLen2); counter2 ++) {
@@ -145,19 +146,19 @@ public class RecordWithoutCustomLogicalTypes_GenericDeserializer_444096306_44409
                 }
                 int unionIndex1 = (decoder.readIndex());
                 if (unionIndex1 == 0) {
-                    byte[] twelveBytes3;
-                    Object oldFixed1 = arrayOfUnionOfNullableCustomTypesArrayElementReuseVar0;
-                    if ((oldFixed1 instanceof GenericFixed)&&(((GenericFixed) oldFixed1).bytes().length == (12))) {
-                        twelveBytes3 = ((GenericFixed) oldFixed1).bytes();
-                    } else {
-                        twelveBytes3 = ( new byte[12]);
-                    }
-                    decoder.readFixed(twelveBytes3);
-                    arrayOfUnionOfNullableCustomTypes1 .add(new GenericData.Fixed(customDurationField0, twelveBytes3));
+                    decoder.readNull();
+                    arrayOfUnionOfNullableCustomTypes1 .add(null);
                 } else {
                     if (unionIndex1 == 1) {
-                        decoder.readNull();
-                        arrayOfUnionOfNullableCustomTypes1 .add(null);
+                        byte[] twelveBytes3;
+                        Object oldFixed1 = arrayOfUnionOfNullableCustomTypesArrayElementReuseVar0;
+                        if ((oldFixed1 instanceof GenericFixed)&&(((GenericFixed) oldFixed1).bytes().length == (12))) {
+                            twelveBytes3 = ((GenericFixed) oldFixed1).bytes();
+                        } else {
+                            twelveBytes3 = ( new byte[12]);
+                        }
+                        decoder.readFixed(twelveBytes3);
+                        arrayOfUnionOfNullableCustomTypes1 .add(new org.apache.avro.generic.GenericData.Fixed(customDurationField0, twelveBytes3));
                     } else {
                         if (unionIndex1 == 2) {
                             arrayOfUnionOfNullableCustomTypes1 .add((decoder.readInt()));

@@ -5,20 +5,14 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import com.linkedin.avro.fastserde.FastSerializer;
-import org.apache.avro.generic.GenericData;
 import org.apache.avro.generic.GenericFixed;
 import org.apache.avro.generic.IndexedRecord;
 import org.apache.avro.io.Encoder;
 
-public class RecordWithoutCustomLogicalTypes_GenericSerializer_444096306
+public class RecordWithoutCustomLogicalTypes_GenericSerializer_86360459
     implements FastSerializer<IndexedRecord>
 {
 
-    private final GenericData modelData;
-
-    public RecordWithoutCustomLogicalTypes_GenericSerializer_444096306(GenericData modelData) {
-        this.modelData = modelData;
-    }
 
     public void serialize(IndexedRecord data, Encoder encoder)
         throws IOException
@@ -79,11 +73,11 @@ public class RecordWithoutCustomLogicalTypes_GenericSerializer_444096306
                 Object union1 = null;
                 union1 = ((List<Object> ) arrayOfUnionOfNullableCustomTypes0).get(counter0);
                 if (union1 == null) {
-                    (encoder).writeIndex(1);
+                    (encoder).writeIndex(0);
                     (encoder).writeNull();
                 } else {
                     if ((union1 instanceof GenericFixed)&&"com.rtbhouse.generated.avro.TwelveBytes".equals(((GenericFixed) union1).getSchema().getFullName())) {
-                        (encoder).writeIndex(0);
+                        (encoder).writeIndex(1);
                         (encoder).writeFixed(((GenericFixed) union1).bytes());
                     } else {
                         if (union1 instanceof Integer) {

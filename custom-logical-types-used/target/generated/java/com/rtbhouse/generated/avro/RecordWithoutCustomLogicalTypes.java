@@ -15,10 +15,10 @@ import org.apache.avro.message.SchemaStore;
 /** Used to confirm equality of corresponding serialized bytes */
 @org.apache.avro.specific.AvroGenerated
 public class RecordWithoutCustomLogicalTypes extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -846573718191963520L;
+  private static final long serialVersionUID = 3739631806859164901L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"RecordWithoutCustomLogicalTypes\",\"namespace\":\"com.rtbhouse.generated.avro\",\"doc\":\"Used to confirm equality of corresponding serialized bytes\",\"fields\":[{\"name\":\"customDurationField\",\"type\":{\"type\":\"fixed\",\"name\":\"TwelveBytes\",\"size\":12}},{\"name\":\"mapOfCustomDurations\",\"type\":{\"type\":\"map\",\"values\":\"TwelveBytes\",\"avro.java.string\":\"String\"}},{\"name\":\"mapOfNullableCustomDurations\",\"type\":{\"type\":\"map\",\"values\":[\"null\",\"TwelveBytes\"],\"avro.java.string\":\"String\"}},{\"name\":\"daysSince2000Field\",\"type\":\"int\"},{\"name\":\"arrayOfUnionOfNullableCustomTypes\",\"type\":{\"type\":\"array\",\"items\":[\"TwelveBytes\",\"null\",\"int\"]}}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"RecordWithoutCustomLogicalTypes\",\"namespace\":\"com.rtbhouse.generated.avro\",\"doc\":\"Used to confirm equality of corresponding serialized bytes\",\"fields\":[{\"name\":\"customDurationField\",\"type\":{\"type\":\"fixed\",\"name\":\"TwelveBytes\",\"size\":12}},{\"name\":\"mapOfCustomDurations\",\"type\":{\"type\":\"map\",\"values\":\"TwelveBytes\",\"avro.java.string\":\"String\"}},{\"name\":\"mapOfNullableCustomDurations\",\"type\":{\"type\":\"map\",\"values\":[\"null\",\"TwelveBytes\"],\"avro.java.string\":\"String\"}},{\"name\":\"daysSince2000Field\",\"type\":\"int\"},{\"name\":\"arrayOfUnionOfNullableCustomTypes\",\"type\":{\"type\":\"array\",\"items\":[\"null\",\"TwelveBytes\",\"int\"]}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();

@@ -9,47 +9,41 @@ import com.rtbhouse.custom.logical.types.CustomDuration;
 import com.rtbhouse.custom.logical.types.CustomDurationConversion;
 import com.rtbhouse.custom.logical.types.DaysSince2000;
 import com.rtbhouse.custom.logical.types.DaysSince2000Conversion;
+import com.rtbhouse.generated.avro.RecordWithCustomLogicalTypes;
 import org.apache.avro.Conversions;
 import org.apache.avro.Schema;
-import org.apache.avro.generic.GenericData;
 import org.apache.avro.generic.GenericFixed;
-import org.apache.avro.generic.IndexedRecord;
 import org.apache.avro.io.Encoder;
 
-public class RecordWithCustomLogicalTypes_GenericSerializer_211388675
-    implements FastSerializer<IndexedRecord>
+public class RecordWithCustomLogicalTypes_SpecificSerializer_362905338
+    implements FastSerializer<RecordWithCustomLogicalTypes>
 {
 
-    private final GenericData modelData;
     private final DaysSince2000Conversion conversion_days_since_2000 = new DaysSince2000Conversion();
     private final CustomDurationConversion conversion_custom_duration = new CustomDurationConversion();
     private final Schema logicalTypeSchema__43761047 = Schema.parse("{\"type\":\"fixed\",\"name\":\"TwelveBytes\",\"namespace\":\"com.rtbhouse.generated.avro\",\"size\":12,\"logicalType\":\"custom-duration\"}");
     private final Schema logicalTypeSchema__1616559509 = Schema.parse("{\"type\":\"int\",\"logicalType\":\"days-since-2000\"}");
 
-    public RecordWithCustomLogicalTypes_GenericSerializer_211388675(GenericData modelData) {
-        this.modelData = modelData;
-    }
-
-    public void serialize(IndexedRecord data, Encoder encoder)
+    public void serialize(RecordWithCustomLogicalTypes data, Encoder encoder)
         throws IOException
     {
         serializeRecordWithCustomLogicalTypes0(data, (encoder));
     }
 
     @SuppressWarnings("unchecked")
-    public void serializeRecordWithCustomLogicalTypes0(IndexedRecord data, Encoder encoder)
+    public void serializeRecordWithCustomLogicalTypes0(RecordWithCustomLogicalTypes data, Encoder encoder)
         throws IOException
     {
         Object convertedValue0 = data.get(0);
         convertedValue0 = Conversions.convertToRawType(convertedValue0, this.logicalTypeSchema__43761047, this.logicalTypeSchema__43761047 .getLogicalType(), this.conversion_custom_duration);
         (encoder).writeFixed(((GenericFixed) convertedValue0).bytes());
-        Map<CharSequence, CustomDuration> mapOfCustomDurations0 = ((Map<CharSequence, CustomDuration> ) data.get(1));
+        Map<String, CustomDuration> mapOfCustomDurations0 = ((Map<String, CustomDuration> ) data.get(1));
         (encoder).writeMapStart();
         if ((mapOfCustomDurations0 == null)||mapOfCustomDurations0 .isEmpty()) {
             (encoder).setItemCount(0);
         } else {
             (encoder).setItemCount(mapOfCustomDurations0 .size());
-            for (CharSequence key0 : ((Map<CharSequence, CustomDuration> ) mapOfCustomDurations0).keySet()) {
+            for (String key0 : ((Map<String, CustomDuration> ) mapOfCustomDurations0).keySet()) {
                 (encoder).startItem();
                 (encoder).writeString(key0);
                 Object convertedValue1 = mapOfCustomDurations0 .get(key0);
@@ -58,27 +52,25 @@ public class RecordWithCustomLogicalTypes_GenericSerializer_211388675
             }
         }
         (encoder).writeMapEnd();
-        Map<CharSequence, CustomDuration> mapOfNullableCustomDurations0 = ((Map<CharSequence, CustomDuration> ) data.get(2));
+        Map<String, CustomDuration> mapOfNullableCustomDurations0 = ((Map<String, CustomDuration> ) data.get(2));
         (encoder).writeMapStart();
         if ((mapOfNullableCustomDurations0 == null)||mapOfNullableCustomDurations0 .isEmpty()) {
             (encoder).setItemCount(0);
         } else {
             (encoder).setItemCount(mapOfNullableCustomDurations0 .size());
-            for (CharSequence key1 : ((Map<CharSequence, CustomDuration> ) mapOfNullableCustomDurations0).keySet()) {
+            for (String key1 : ((Map<String, CustomDuration> ) mapOfNullableCustomDurations0).keySet()) {
                 (encoder).startItem();
                 (encoder).writeString(key1);
                 CustomDuration union0 = null;
-                union0 = ((Map<CharSequence, CustomDuration> ) mapOfNullableCustomDurations0).get(key1);
+                union0 = ((Map<String, CustomDuration> ) mapOfNullableCustomDurations0).get(key1);
                 if (union0 == null) {
                     (encoder).writeIndex(0);
                     (encoder).writeNull();
                 } else {
-                    if (union0 instanceof CustomDuration) {
-                        (encoder).writeIndex(1);
-                        Object convertedValue2 = union0;
-                        convertedValue2 = Conversions.convertToRawType(convertedValue2, this.logicalTypeSchema__43761047, this.logicalTypeSchema__43761047 .getLogicalType(), this.conversion_custom_duration);
-                        (encoder).writeFixed(((GenericFixed) convertedValue2).bytes());
-                    }
+                    (encoder).writeIndex(1);
+                    Object convertedValue2 = union0;
+                    convertedValue2 = Conversions.convertToRawType(convertedValue2, this.logicalTypeSchema__43761047, this.logicalTypeSchema__43761047 .getLogicalType(), this.conversion_custom_duration);
+                    (encoder).writeFixed(((GenericFixed) convertedValue2).bytes());
                 }
             }
         }
@@ -97,11 +89,11 @@ public class RecordWithCustomLogicalTypes_GenericSerializer_211388675
                 Object union1 = null;
                 union1 = ((List<Object> ) arrayOfUnionOfNullableCustomTypes0).get(counter0);
                 if (union1 == null) {
-                    (encoder).writeIndex(1);
+                    (encoder).writeIndex(0);
                     (encoder).writeNull();
                 } else {
                     if (union1 instanceof CustomDuration) {
-                        (encoder).writeIndex(0);
+                        (encoder).writeIndex(1);
                         Object convertedValue4 = union1;
                         convertedValue4 = Conversions.convertToRawType(convertedValue4, this.logicalTypeSchema__43761047, this.logicalTypeSchema__43761047 .getLogicalType(), this.conversion_custom_duration);
                         (encoder).writeFixed(((GenericFixed) convertedValue4).bytes());

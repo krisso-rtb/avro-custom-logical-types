@@ -12,18 +12,15 @@ import org.apache.avro.Schema;
 import org.apache.avro.generic.GenericArray;
 import org.apache.avro.generic.GenericFixed;
 import org.apache.avro.io.Decoder;
-import org.apache.avro.specific.SpecificData;
 
-public class RecordWithoutCustomLogicalTypes_SpecificDeserializer_444096306_444096306
+public class RecordWithoutCustomLogicalTypes_SpecificDeserializer_86360459_86360459
     implements FastDeserializer<com.rtbhouse.generated.avro.RecordWithoutCustomLogicalTypes>
 {
 
     private final Schema readerSchema;
-    private final SpecificData modelData;
 
-    public RecordWithoutCustomLogicalTypes_SpecificDeserializer_444096306_444096306(Schema readerSchema, SpecificData modelData) {
+    public RecordWithoutCustomLogicalTypes_SpecificDeserializer_86360459_86360459(Schema readerSchema) {
         this.readerSchema = readerSchema;
-        this.modelData = modelData;
     }
 
     public com.rtbhouse.generated.avro.RecordWithoutCustomLogicalTypes deserialize(com.rtbhouse.generated.avro.RecordWithoutCustomLogicalTypes reuse, Decoder decoder)
@@ -128,7 +125,11 @@ public class RecordWithoutCustomLogicalTypes_SpecificDeserializer_444096306_4440
         Object oldArray0 = RecordWithoutCustomLogicalTypes.get(4);
         if (oldArray0 instanceof List) {
             arrayOfUnionOfNullableCustomTypes0 = ((List) oldArray0);
-            arrayOfUnionOfNullableCustomTypes0 .clear();
+            if (arrayOfUnionOfNullableCustomTypes0 instanceof GenericArray) {
+                ((GenericArray) arrayOfUnionOfNullableCustomTypes0).reset();
+            } else {
+                arrayOfUnionOfNullableCustomTypes0 .clear();
+            }
         } else {
             arrayOfUnionOfNullableCustomTypes0 = new ArrayList<Object>(((int) chunkLen2));
         }
@@ -140,21 +141,21 @@ public class RecordWithoutCustomLogicalTypes_SpecificDeserializer_444096306_4440
                 }
                 int unionIndex1 = (decoder.readIndex());
                 if (unionIndex1 == 0) {
-                    byte[] twelveBytes6;
-                    Object oldFixed1 = arrayOfUnionOfNullableCustomTypesArrayElementReuseVar0;
-                    if ((oldFixed1 instanceof GenericFixed)&&(((GenericFixed) oldFixed1).bytes().length == (12))) {
-                        twelveBytes6 = ((GenericFixed) oldFixed1).bytes();
-                    } else {
-                        twelveBytes6 = ( new byte[12]);
-                    }
-                    decoder.readFixed(twelveBytes6);
-                    TwelveBytes twelveBytes7 = new TwelveBytes();
-                    twelveBytes7.bytes(twelveBytes6);
-                    arrayOfUnionOfNullableCustomTypes0 .add(twelveBytes7);
+                    decoder.readNull();
+                    arrayOfUnionOfNullableCustomTypes0 .add(null);
                 } else {
                     if (unionIndex1 == 1) {
-                        decoder.readNull();
-                        arrayOfUnionOfNullableCustomTypes0 .add(null);
+                        byte[] twelveBytes6;
+                        Object oldFixed1 = arrayOfUnionOfNullableCustomTypesArrayElementReuseVar0;
+                        if ((oldFixed1 instanceof GenericFixed)&&(((GenericFixed) oldFixed1).bytes().length == (12))) {
+                            twelveBytes6 = ((GenericFixed) oldFixed1).bytes();
+                        } else {
+                            twelveBytes6 = ( new byte[12]);
+                        }
+                        decoder.readFixed(twelveBytes6);
+                        TwelveBytes twelveBytes7 = new TwelveBytes();
+                        twelveBytes7.bytes(twelveBytes6);
+                        arrayOfUnionOfNullableCustomTypes0 .add(twelveBytes7);
                     } else {
                         if (unionIndex1 == 2) {
                             arrayOfUnionOfNullableCustomTypes0 .add((decoder.readInt()));

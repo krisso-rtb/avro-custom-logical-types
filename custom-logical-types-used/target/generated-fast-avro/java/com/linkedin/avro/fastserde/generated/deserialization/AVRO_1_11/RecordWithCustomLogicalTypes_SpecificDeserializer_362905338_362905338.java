@@ -17,22 +17,19 @@ import org.apache.avro.Schema;
 import org.apache.avro.generic.GenericArray;
 import org.apache.avro.generic.GenericFixed;
 import org.apache.avro.io.Decoder;
-import org.apache.avro.specific.SpecificData;
 
-public class RecordWithCustomLogicalTypes_SpecificDeserializer_211388675_211388675
+public class RecordWithCustomLogicalTypes_SpecificDeserializer_362905338_362905338
     implements FastDeserializer<com.rtbhouse.generated.avro.RecordWithCustomLogicalTypes>
 {
 
     private final Schema readerSchema;
-    private final SpecificData modelData;
     private final DaysSince2000Conversion conversion_days_since_2000 = new DaysSince2000Conversion();
     private final CustomDurationConversion conversion_custom_duration = new CustomDurationConversion();
     private final Schema logicalTypeSchema__43761047 = Schema.parse("{\"type\":\"fixed\",\"name\":\"TwelveBytes\",\"namespace\":\"com.rtbhouse.generated.avro\",\"size\":12,\"logicalType\":\"custom-duration\"}");
     private final Schema logicalTypeSchema__1616559509 = Schema.parse("{\"type\":\"int\",\"logicalType\":\"days-since-2000\"}");
 
-    public RecordWithCustomLogicalTypes_SpecificDeserializer_211388675_211388675(Schema readerSchema, SpecificData modelData) {
+    public RecordWithCustomLogicalTypes_SpecificDeserializer_362905338_362905338(Schema readerSchema) {
         this.readerSchema = readerSchema;
-        this.modelData = modelData;
     }
 
     public com.rtbhouse.generated.avro.RecordWithCustomLogicalTypes deserialize(com.rtbhouse.generated.avro.RecordWithCustomLogicalTypes reuse, Decoder decoder)
@@ -141,7 +138,11 @@ public class RecordWithCustomLogicalTypes_SpecificDeserializer_211388675_2113886
         Object oldArray0 = RecordWithCustomLogicalTypes.get(4);
         if (oldArray0 instanceof List) {
             arrayOfUnionOfNullableCustomTypes0 = ((List) oldArray0);
-            arrayOfUnionOfNullableCustomTypes0 .clear();
+            if (arrayOfUnionOfNullableCustomTypes0 instanceof GenericArray) {
+                ((GenericArray) arrayOfUnionOfNullableCustomTypes0).reset();
+            } else {
+                arrayOfUnionOfNullableCustomTypes0 .clear();
+            }
         } else {
             arrayOfUnionOfNullableCustomTypes0 = new ArrayList<Object>(((int) chunkLen2));
         }
@@ -153,22 +154,22 @@ public class RecordWithCustomLogicalTypes_SpecificDeserializer_211388675_2113886
                 }
                 int unionIndex1 = (decoder.readIndex());
                 if (unionIndex1 == 0) {
-                    byte[] twelveBytes6;
-                    Object oldFixed1 = arrayOfUnionOfNullableCustomTypesArrayElementReuseVar0;
-                    if ((oldFixed1 instanceof GenericFixed)&&(((GenericFixed) oldFixed1).bytes().length == (12))) {
-                        twelveBytes6 = ((GenericFixed) oldFixed1).bytes();
-                    } else {
-                        twelveBytes6 = ( new byte[12]);
-                    }
-                    decoder.readFixed(twelveBytes6);
-                    TwelveBytes twelveBytes7 = new TwelveBytes();
-                    twelveBytes7.bytes(twelveBytes6);
-                    CustomDuration convertedValue4 = ((CustomDuration) Conversions.convertToLogicalType(twelveBytes7, this.logicalTypeSchema__43761047, this.logicalTypeSchema__43761047 .getLogicalType(), this.conversion_custom_duration));
-                    arrayOfUnionOfNullableCustomTypes0 .add(convertedValue4);
+                    decoder.readNull();
+                    arrayOfUnionOfNullableCustomTypes0 .add(null);
                 } else {
                     if (unionIndex1 == 1) {
-                        decoder.readNull();
-                        arrayOfUnionOfNullableCustomTypes0 .add(null);
+                        byte[] twelveBytes6;
+                        Object oldFixed1 = arrayOfUnionOfNullableCustomTypesArrayElementReuseVar0;
+                        if ((oldFixed1 instanceof GenericFixed)&&(((GenericFixed) oldFixed1).bytes().length == (12))) {
+                            twelveBytes6 = ((GenericFixed) oldFixed1).bytes();
+                        } else {
+                            twelveBytes6 = ( new byte[12]);
+                        }
+                        decoder.readFixed(twelveBytes6);
+                        TwelveBytes twelveBytes7 = new TwelveBytes();
+                        twelveBytes7.bytes(twelveBytes6);
+                        CustomDuration convertedValue4 = ((CustomDuration) Conversions.convertToLogicalType(twelveBytes7, this.logicalTypeSchema__43761047, this.logicalTypeSchema__43761047 .getLogicalType(), this.conversion_custom_duration));
+                        arrayOfUnionOfNullableCustomTypes0 .add(convertedValue4);
                     } else {
                         if (unionIndex1 == 2) {
                             DaysSince2000 convertedValue5 = ((DaysSince2000) Conversions.convertToLogicalType((decoder.readInt()), this.logicalTypeSchema__1616559509, this.logicalTypeSchema__1616559509 .getLogicalType(), this.conversion_days_since_2000));

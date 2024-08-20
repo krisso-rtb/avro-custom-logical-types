@@ -8,17 +8,11 @@ import com.linkedin.avro.fastserde.FastSerializer;
 import com.rtbhouse.generated.avro.RecordWithoutCustomLogicalTypes;
 import org.apache.avro.generic.GenericFixed;
 import org.apache.avro.io.Encoder;
-import org.apache.avro.specific.SpecificData;
 
-public class RecordWithoutCustomLogicalTypes_SpecificSerializer_444096306
+public class RecordWithoutCustomLogicalTypes_SpecificSerializer_86360459
     implements FastSerializer<RecordWithoutCustomLogicalTypes>
 {
 
-    private final SpecificData modelData;
-
-    public RecordWithoutCustomLogicalTypes_SpecificSerializer_444096306(SpecificData modelData) {
-        this.modelData = modelData;
-    }
 
     public void serialize(RecordWithoutCustomLogicalTypes data, Encoder encoder)
         throws IOException
@@ -77,11 +71,11 @@ public class RecordWithoutCustomLogicalTypes_SpecificSerializer_444096306
                 Object union1 = null;
                 union1 = ((List<Object> ) arrayOfUnionOfNullableCustomTypes0).get(counter0);
                 if (union1 == null) {
-                    (encoder).writeIndex(1);
+                    (encoder).writeIndex(0);
                     (encoder).writeNull();
                 } else {
                     if (union1 instanceof GenericFixed) {
-                        (encoder).writeIndex(0);
+                        (encoder).writeIndex(1);
                         (encoder).writeFixed(((GenericFixed) union1).bytes());
                     } else {
                         if (union1 instanceof Integer) {
